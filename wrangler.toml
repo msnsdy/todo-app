@@ -1,0 +1,19 @@
+name = "todo-app"
+# ↑ Cloudflare上でのプロジェクト名
+
+compatibility_date = "2025-04-29"
+# ↑ Cloudflareの機能バージョンを固定する日付
+#   これを指定することでCloudflareの仕様変更による突然の動作変化を防ぐ
+
+compatibility_flags = ["nodejs_compat"]
+# ↑ Node.jsのAPIをCloudflare Workers内で使えるようにするフラグ
+#   これがないとNode.js依存のコードが動かない
+
+main = ".open-next/worker.js"
+# ↑ OpenNextがビルドした「Workers用のエントリーポイント」の場所
+
+[assets]
+directory = ".open-next/assets"
+# ↑ 画像・CSS・JSなど静的ファイルの場所
+binding = "ASSETS"
+# ↑ Worker内から静的ファイルを参照するための名前
